@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <meta charset=""utf-8>
+    <title>Login / Sign Up Form</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+</head>
+<body>
+
+        <form class="form form--hidden" id="CreateAccount" method="post" action="createAccount">
+            <h1 class="form__title">Create Account</h1>
+            <div class="form__message form__message--error"></div>
+            {% csrf_token %}
+            <div class="form__input-group">
+                <input type="text" id="Signupusername" name="first_name" class="form__input" autofocus placeholder="First Name">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="text" id="Signupusername" name="last_name" class="form__input" autofocus placeholder="Last Name">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="text" id="Signupusername" name="username" class="form__input" autofocus placeholder="Username">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="email" name="email" class="form__input" autofocus placeholder="Email Address">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" name="password1" autofocus placeholder="password">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" name="password2" autofocus placeholder="Confirm password">
+                <div class="form__input-error-message"></div>
+            </div>
+            <button class="form__button" type="submit">Continue</button>
+            <p class="form__text">
+                <a href="#" class="form__link">Forgot your password?</a>
+            </p>
+            <p class="form__text">
+                <a class="form__link"  href="{% url 'index'%}" id="linklogin">Already have an account?Sign in</a> 
+            </p>
+        </form>
+    </div>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+    
+    
