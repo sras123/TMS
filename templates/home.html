@@ -31,13 +31,9 @@
               <img src="{% static 'Images/profile.png' %}"  class="profile_image" alt="">
               <h4>Tour Management System</h4>
             </center>
-            <a href="#"><i class="fa fa-desktop" aria-hidden="true">Dashboard</i></a>
-            <a href="#"><i class="fa fa-navicon" aria-hidden="true">Tour Packages</i></a>
-            <a href="#"><i class="fa fa-users" aria-hidden="true">Manage Users</i></a>
-            <a href="#"><i class="fa fa-address-book" aria-hidden="true">Manage Booking</i></a>
-            <a href="#"><i class="fa fa-table" aria-hidden="true">Manage Issue</i></a>
-            <a href="#"><i class="fa fa-file-text" aria-hidden="true">Manage Enquiries</i></a>
-            <a href="#"><i class="fa fa-info-circle" aria-hidden="true">About Us</i></a>
+            <a href="{% url 'home'%}"><i class="fa fa-desktop" aria-hidden="true">Dashboard</i></a>
+            <a href="{% url 'Tourpackages'%}"><i class="fa fa-navicon" aria-hidden="true">Tour Packages</i></a>
+            <a href="{% url 'AboutUs'%}"><i class="fa fa-info-circle" aria-hidden="true">About Us</i></a>
         </div>
         <!--sidebar end-->
 

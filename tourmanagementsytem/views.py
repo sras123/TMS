@@ -67,3 +67,11 @@ def createAccount(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+def Tourpackages(request):
+    return render(request, 'Tourpackages.html')
+
+
+def AboutUs(request):
+    return render(request, 'AboutUs.html')
+
