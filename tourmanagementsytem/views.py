@@ -2,47 +2,49 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .models import Image
-
+from django.contrib.auth.models import Group
+from .decorators import unauthenticated_user, allowed_users, admin_only
 
 
 
 # Create your views here.
-
+@allowed_users(allowed_roles=['users','admins'])
 def home(request):
-    pics=Image.objects.all()
-    return render(request, 'home.html', {"pics":pics})
+    return render(request, 'home.html')
 
-    
-def index(request):
+@unauthenticated_user   
+def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-
         user = auth.authenticate(username=username,password=password)
-
-
+        
         if user is not None:
             auth.login(request,user)
             return redirect("/")
         else:
             messages.info(request,'invalid credentials')
-            return redirect('index')
-
+            return redirect('login')
+        
     else:
-        return render(request,'index.html')
+        return render(request,'login.html')
 
 
+
+@unauthenticated_user
 def createAccount(request):
 
 
     if request.method == 'POST':
+
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         username = request.POST['username']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         email = request.POST['email']
+
+        
 
         if password1==password2:
             if User.objects.filter(username=username).exists():
@@ -64,16 +66,19 @@ def createAccount(request):
     else: 
       return render(request, 'createAccount.html')
 
+def forgotpass(request):
+    return render(request, 'forgotpass.html')
+
 
 
 def logout(request):
     auth.logout(request)
-    return redirect('/')
-
-def Tourpackages(request):
-    return render(request, 'Tourpackages.html')
+    return redirect('login')
 
 
-def AboutUs(request):
-    return render(request, 'AboutUs.html')
 
+
+@admin_only
+def admindashboard(request):
+    
+    return render(request, 'admindashboard.html')

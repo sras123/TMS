@@ -1,44 +1,161 @@
 {% load static %}
-{% static "images" as baseurl %}
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-    <title>Tour Management System Dashboard</title> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tour Management System </title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
-    </head>
-    <body>
 
-        <input type="text" id="check">
-        <!--header area  start-->
-        <header>
-           <label for="">
-            <i class="fa fa-bars" aria-hidden="true"></i>
-           </label>
-          <div class="left_area">
-            <h3><span>Gantabya</span></h3>
-          </div>
-          <div class="right-area">
-            <a href="{% url 'logout'%}" class="logout_btn">Logout</a>
-          </div>
-        </header>
-        <!--header area end -->
-        <!--sidebar start -->
-        <div class="sidebar">
-            <center>
-              <img src="{% static 'Images/profile.png' %}"  class="profile_image" alt="">
-              <h4>Tour Management System</h4>
-            </center>
-            <a href="{% url 'home'%}"><i class="fa fa-desktop" aria-hidden="true">Dashboard</i></a>
-            <a href="{% url 'Tourpackages'%}"><i class="fa fa-navicon" aria-hidden="true">Tour Packages</i></a>
-            <a href="{% url 'AboutUs'%}"><i class="fa fa-info-circle" aria-hidden="true">About Us</i></a>
+</head>
+<body>
+
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-hiking"></i> Gantabya. </a>
+
+    <nav class="navbar">
+        <div id="nav-close" class="fas fa-times"></div>
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#packages">packages</a>
+        <a href="#reviews">reviews</a>
+        <a href="{% url 'login'%}">login</a>
+        <a href="{% url 'logout'%}">logout</a>
+        <a href="{% url 'admindashboard'%}">dashboard</a>
+    </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search"></div>
+    </div>
+
+</header>
+
+
+
+
+
+<div class="search-form">
+
+    <div id="close-search" class="fas fa-times"></div>
+
+    <form action="">
+        <input type="search" name="" placeholder="search here..." id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+</div>
+
+
+
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="box" style="background-image: url({% static 'images/home-bg-1.jpg' %}); no-repeat;">
+                    <div class="content">
+                        <span>Experince Better</span>
+                        <h3>Travel</h3>
+                        <p>“THE PURPOSE OF LIFE IS TO LIVE IT, TO TASTE IT, TO EXPERIENCE TO THE UTMOST, TO REACH OUT EAGERLY AND WITHOUT FEAR FOR NEWER AND RICHER EXPERIENCE.” !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box second" style="background-image: url({% static 'images/home-bg-2.jpg' %}); no-repeat;">
+                    <div class="content">
+                        <span>We prioritize</span>
+                        <h3>Safety</h3>
+                     
+                        <p>AS A TOURS COMPANY, WE BELIEVE THAT OUR CUSTOMERS SHOULD FEEL AS SAFE AS POSSIBLE</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box" style="background-image: url({% static 'images/home-bg-3.jpg' %}); no-repeat;">
+                    <div class="content">
+                        <span>explore the real</span>
+                        <h3>nepal</h3>
+                        <p>It is home to eight of the world's fourteen eight-thousander mountain peaks, and has plenty of other splendid places including valleys, forests, lakes, caves, temples, monasteries and palaces that offer jaw-dropping sights! Each of these beautiful places in Nepal stands out in its unique way.!</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <!--sidebar end-->
 
-        <div class="content"></div>
-        <div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
 
-    </body>
+    </div>
+
+</section>
+
+
+<section class="category">
+
+    <div class="box-container">
+        
+        <div class="box">
+            <img src="{% static 'images/category-1.jpg' %}" alt="">
+            <h3>bungee jump</h3>
+            <p>Bungee jumping is an action-filled recreational activity that involves head-first jumping from a tall structure with an elastic cord attached into participants' feet.</p>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'images/category-2.jpg' %}" alt="">
+            <h3>zip lines</h3>
+            <p> Zip line cable suspended above an incline to which a pulley and harness are attached for a rider.</p>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'images/category-3.jpg' %}" alt="">
+            <h3>Rafting</h3>
+            <p>Rafting and whitewater rafting are recreational outdoor activities which use an inflatable raft to navigate a river or other body of water.</p>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'images/category-4.jpg' %}" alt="">
+            <h3>trekking</h3>
+            <p>Trekking is an outdoor activity of walking for more than a day.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="about" id="about">
+
+    <div class="image">
+        <img src="{% static 'images/about-img.jpg' %}" alt="">
+    </div>
+
+    <div class="content">
+        <h3>Why Gantabya?</h3>
+        <p>Gantabya is the one of the best travel company which gives you lifetime experience.</p>
+        <p>Gantabya is always ready to serve customers</p>
+    </div>
+
+</section>
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
 </html> 

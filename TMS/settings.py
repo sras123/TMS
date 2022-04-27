@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'TMS',
         'USER': 'postgres',
-        'PASSWORD': '1971',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': ''
 
@@ -138,3 +138,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
  
 MEDIA_URL= "/media/"
 MEDIA_ROOT= os.path.join(BASE_DIR, "media/")
+
+LOGIN_URL='/path/to/url'
+LOGIN_REDIRECT_URL='/path/to/redirecturl'

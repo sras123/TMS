@@ -113,7 +113,19 @@ body {
       background: var(--color-primary);
 
 }
+.form__button1{
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+     background: var(--color-primary);
 
+}
 .form__button:hover{
     background: var(--color-primary-dark);
 }
@@ -136,6 +148,6 @@ body {
 }
 
 .form__link:hover {
-    text-decoration: underlineS;
+    text-decoration: underline;
 
 }
