@@ -31,15 +31,16 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [ 
-    
+INSTALLED_APPS = [
+    'jazzmin',
+    'tourmanagementsytem',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages', 
     'django.contrib.staticfiles',
-    'tourmanagementsytem',
+    
     
 ]
 
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'TMS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'TMS',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
@@ -135,9 +136,43 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assests')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
- 
+
 MEDIA_URL= "/media/"
 MEDIA_ROOT= os.path.join(BASE_DIR, "media/")
 
 LOGIN_URL='/path/to/url'
 LOGIN_REDIRECT_URL='/path/to/redirecturl'
+
+JAZZMIN_UI_TWEAKS = {
+    
+    "theme": "simplex",
+}
+
+
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "Tour Management System",
+
+    # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_header": "Gantabya",
+
+    "order_with_Respect_to":["auth", "main.Destinations"],
+
+   
+
+    # Links to put along the top menu
+    "topmenu_links": [
+
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+
+      
+
+        # model admin to link to (Permissions checked against model)
+        {"model": "auth.User"},
+        {"app": "tourmanagementsytem"},
+       
+
+      ]
+
+}

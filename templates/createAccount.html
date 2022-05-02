@@ -39,14 +39,20 @@
             </div>
             <button class="form__button" type="submit">Continue</button>
             <!-- <p class="form__text">
-                <a href="#" class="form__link">Forgot your password?</a> -->
-            </p>
+                <a href="#" class="form__link">Forgot your password?</a>
+            </p> -->
             <p class="form__text">
                 <a class="form__link"  href="{% url 'login'%}" id="linklogin">Already have an account?Sign in</a> 
             </p>
         </form>
     </div>
     <script src="{% static 'js/main.js' %}"></script>
+
+    <div>
+        {% for message in messages%}
+        <h3> {{message}} </h3>
+        {% endfor%}
+</div>
 </body>
     
     

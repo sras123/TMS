@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tour Management System </title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+</head>
+<body>
+
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-hiking"></i> Gantabya. </a>
+
+    <nav class="navbar">
+        <div id="nav-close" class="fas fa-times"></div>
+        <a href="{% url 'home'%}">home</a>
+        <a href="#about">about</a>
+        <a href="{% url 'packages'%}">packages</a>
+        <a href="#reviews">reviews</a>
+        <a href="{% url 'login'%}">login</a>
+        <a href="{% url 'logout'%}">logout</a>
+        <a href="{% url 'admindashboard'%}">dashboard</a>
+    </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search"></div>
+    </div>
+
+</header>
+
+
+
+
+
+<div class="search-form">
+
+    <div id="close-search" class="fas fa-times"></div>
+
+    <form action="">
+        <input type="search" name="" placeholder="search here..." id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+</div>
+
+
+<section class="category">
+
+    <div class="box-container">
+        <div class="box">
+            <img src="{% static 'images/category-4.jpg' %}" alt="">
+            <h3>Destinations</h3>
+            <p>Trekking is an outdoor activity of walking for more than a day.</p>
+        </div>
+
+    </div>
+
+</section>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html> 

@@ -26,11 +26,11 @@
         <div id="nav-close" class="fas fa-times"></div>
         <a href="#home">home</a>
         <a href="#about">about</a>
-        <a href="#packages">packages</a>
+        <a href="{% url 'packages'%}">packages</a>
         <a href="#reviews">reviews</a>
         <a href="{% url 'login'%}">login</a>
         <a href="{% url 'logout'%}">logout</a>
-        <a href="{% url 'admindashboard'%}">dashboard</a>
+        <a href='admin'>dashboard</a>
     </nav>
 
     <div class="icons">
@@ -108,19 +108,19 @@
     <div class="box-container">
         
         <div class="box">
-            <img src="{% static 'images/category-1.jpg' %}" alt="">
+            <img src="{% static 'images/category-1.jpg' %}" alt="image">
             <h3>bungee jump</h3>
             <p>Bungee jumping is an action-filled recreational activity that involves head-first jumping from a tall structure with an elastic cord attached into participants' feet.</p>
         </div>
 
         <div class="box">
-            <img src="{% static 'images/category-2.jpg' %}" alt="">
+            <img src="{% static 'images/category-2.jpg' %}" alt="image">
             <h3>zip lines</h3>
             <p> Zip line cable suspended above an incline to which a pulley and harness are attached for a rider.</p>
         </div>
 
         <div class="box">
-            <img src="{% static 'images/category-3.jpg' %}" alt="">
+            <img src="{% static 'images/category-3.jpg' %}" alt="image">
             <h3>Rafting</h3>
             <p>Rafting and whitewater rafting are recreational outdoor activities which use an inflatable raft to navigate a river or other body of water.</p>
         </div>

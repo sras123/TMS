@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth.models import Group
+
+from .models import Destinations
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
 
@@ -43,7 +45,7 @@ def createAccount(request):
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         email = request.POST['email']
-
+ 
         
 
         if password1==password2:
@@ -57,7 +59,7 @@ def createAccount(request):
                user = User.objects.create_user(username,password=password1,email=email,first_name=first_name,last_name=last_name)
                user.save();
                print(request,'user created')
-               return redirect('index')
+               return redirect('login')
         else:
             messages.info(request,'password not matching..')
             return redirect('createAccount')
@@ -79,6 +81,13 @@ def logout(request):
 
 
 @admin_only
-def admindashboard(request):
+def admin(request):
     
-    return render(request, 'admindashboard.html')
+    return render(request, 'admin')
+
+
+def packages(request):
+    dests = Destinations.objects.all()
+    
+    return render(request, 'packages.html', {'dests': dests})
+   
