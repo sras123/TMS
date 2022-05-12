@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages', 
     'django.contrib.staticfiles',
-    'auths'
     
     
 ]
@@ -157,9 +156,8 @@ JAZZMIN_SETTINGS = {
     # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
     "site_header": "Gantabya",
 
-    "order_with_Respect_to":["auth", "main.Destinations", "main.Review", "main.Booking"],
+    "order_with_Respect_to":["auth", "main.Destinations"],
 
-    
    
 
     # Links to put along the top menu
@@ -179,3 +177,10 @@ JAZZMIN_SETTINGS = {
 
 }
 
+#SMTP Configuration
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER= 'tourmanagement2001@gmail.com'
+EMAIL_HOST_PASSWORD='tourmanagement'
+EMAIL_USE_TLS= True

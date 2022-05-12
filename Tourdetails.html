@@ -1,0 +1,288 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tourdetails</title>
+
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="{% static '/css/package.css' %}">
+   <link rel="stylesheet" href="{% static 'css/tourdetails.css' %}">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+   <!-- <link rel="stylesheet" href="{% static '/css/style.css' %}"> -->
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"> <i class="fas fa-hiking"></i><span>G</span>antabya</a>
+
+    <nav class="navbar">
+        <a href="{% url 'home'%}">home</a>
+        <a href="{% url 'AboutUs'%}">about</a>
+        <a href="{% url 'Packages'%}">packages</a>
+        <a href="{% url 'Reviews'%}">reviews</a>
+        <a href="{% url 'Gallery'%}">Gallery</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout'%}">logout</a>
+        {% else %}
+        
+        <a href="{% url 'login'%}">login</a>
+        {% endif %}
+        {%  if user.is_superuser %}
+        <a href='admin'>dashboard</a>
+        {% endif %}
+       
+    </nav>
+
+</header>
+
+  <body>
+   
+    <div class = "card-wrapper">
+      <div class = "card">
+        <!-- card left -->
+        <div class = "product-imgs">
+          <div class = "img-display">
+            <div class = "img-showcase">
+              <img src = "https://images.pexels.com/photos/11703106/pexels-photo-11703106.jpeg?cs=srgb&dl=pexels-mehmet-turgut-kirkgoz-11703106.jpg&fm=jpg" alt = "">
+              <img src = "https://images.pexels.com/photos/11961121/pexels-photo-11961121.jpeg?cs=srgb&dl=pexels-mehmet-turgut-kirkgoz-11961121.jpg&fm=jpg" alt = "">
+              <img src = "https://images.pexels.com/photos/4277491/pexels-photo-4277491.jpeg?cs=srgb&dl=pexels-pritush-munankarmi-4277491.jpg&fm=jpg" alt = "">
+              <img src = "https://images.pexels.com/photos/11596701/pexels-photo-11596701.jpeg?cs=srgb&dl=pexels-mehmet-turgut-kirkgoz-11596701.jpg&fm=jpg" alt = "">
+            </div>
+          </div>
+          <div class = "img-select">
+            <div class = "img-item">
+              <a href = "#" data-id = "1">
+                <img src = "https://images.pexels.com/photos/11757175/pexels-photo-11757175.jpeg?cs=srgb&dl=pexels-mehmet-turgut-kirkgoz-11757175.jpg&fm=jpg"  alt = "">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "2">
+                <img src = "https://images.pexels.com/photos/11961121/pexels-photo-11961121.jpeg?cs=srgb&dl=pexels-mehmet-turgut-kirkgoz-11961121.jpg&fm=jpg"alt = "">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "3">
+                <img src ="https://images.pexels.com/photos/4277491/pexels-photo-4277491.jpeg?cs=srgb&dl=pexels-pritush-munankarmi-4277491.jpg&fm=jpg" alt = "">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "4">
+                <img src = "https://images.pexels.com/photos/11596701/pexels-photo-11596701.jpeg?cs=srgb&dl=pexels-mehmet-turgut-kirkgoz-11596701.jpg&fm=jpg" alt = "">
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- card right -->
+        <div class = "product-content">
+          
+          <h2 class = "product-title">Kathmandu</h2>
+          
+
+         
+          <div class = "product-detail">
+            <h2>about this package: </h2>
+            <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Illo Eveniet Veniam Tempora Fuga Tenetur Placeat Sapiente Architecto Illum Soluta Consequuntur.</p>
+            <ul>
+              <li>Trip: <span>Road</span></li>
+              <li>Days: <span>5</span></li>
+              <li>Package include: <span>Hotel check in plus food</span></li>
+              <li>Adventure: <span>Durbar Square, Temples, Hiking</span></li>
+              <li>Extra: <span>Street food hunt, Cycling</span></li>
+            </ul>
+          </div>
+          
+
+
+        </div>
+      </div>
+      
+    </div>
+  
+    
+
+   
+
+    <div class = "card-wrapper">
+      <div class = "card">
+        <!-- card left -->
+        <div class = "product-imgs">
+          <div class = "img-display">
+            <div class = "img-showcase">
+              <img src = "{%static 'images/Pokhara.jpg'%}" alt = "">
+              <img src = "{%static 'images/paragliding.jpg'%}" alt = "">
+              <img src = "{%static 'images/sarangkot.jpg'%}" alt = "">
+              <img src = "{%static 'images/Slide-1.jpg'%}" alt = "">
+            </div>
+          </div>
+          <div class = "img-select">
+            <div class = "img-item">
+              <a href = "#" data-id = "1">
+                <img src = "{%static 'images/Pokhara.jpg'%}" alt = "">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "2">
+                <img src = "{%static 'images/paraglading.webp'%}"alt = "">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "3">
+                <img src ="{%static 'images/sarangkot.webp'%}"alt = "">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "4">
+                <img src = "{%static 'images/Slide-1.jpg'%}" alt = "">
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- card right -->
+        <div class = "product-content">
+          
+          <h2 class = "product-title">Pokhara</h2>
+          
+
+         
+          <div class = "product-detail">
+            <h2>about this package: </h2>
+            <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Illo Eveniet Veniam Tempora Fuga Tenetur Placeat Sapiente Architecto Illum Soluta Consequuntur.</p>
+            <ul>
+              <li>Trip: <span>Road</span></li>
+              <li>Days: <span>5</span></li>
+              <li>Package include: <span>Hotel check in plus food</span></li>
+              <li>Adventure: <span>Bungee, Paragliding, Canoing</span></li>
+              <li>Extra: <span>Trekking</span></li>
+            </ul>
+          </div>
+          
+
+
+        </div>
+      </div>
+      
+    </div>
+
+    <div class = "card-wrapper">
+      <div class = "card">
+        <!-- card left -->
+        <div class = "product-imgs">
+          <div class = "img-display">
+            <div class = "img-showcase">
+              <img src = "https://images.pexels.com/photos/3352873/pexels-photo-3352873.jpeg?cs=srgb&dl=pexels-iqx-azmi-3352873.jpg&fm=jpg" alt = "">
+              <img src = "https://images.pexels.com/photos/1531660/pexels-photo-1531660.jpeg?cs=srgb&dl=pexels-james-wheeler-1531660.jpg&fm=jpg" alt = "">
+              <img src = "https://images.pexels.com/photos/3027138/pexels-photo-3027138.jpeg?cs=srgb&dl=pexels-sparsh-karki-3027138.jpg&fm=jpg" alt = "">
+              <img src = "https://images.pexels.com/photos/2856273/pexels-photo-2856273.jpeg?cs=srgb&dl=pexels-pavel-bondarenko-2856273.jpg&fm=jpg" alt = "">
+            </div>
+          </div>
+          <div class = "img-select">
+            <div class = "img-item">
+              <a href = "#" data-id = "1">
+                <img src = "https://images.pexels.com/photos/3352873/pexels-photo-3352873.jpeg?cs=srgb&dl=pexels-iqx-azmi-3352873.jpg&fm=jpg"  alt = "">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "2">
+                <img src = "https://images.pexels.com/photos/1531660/pexels-photo-1531660.jpeg?cs=srgb&dl=pexels-james-wheeler-1531660.jpg&fm=jpg"alt = "">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "3">
+                <img src ="https://images.pexels.com/photos/3027138/pexels-photo-3027138.jpeg?cs=srgb&dl=pexels-sparsh-karki-3027138.jpg&fm=jpg" alt = "">
+              </a>
+            </div>
+            <div class = "img-item">
+              <a href = "#" data-id = "4">
+                <img src = "image/Pokhara.jpg" alt = "">
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- card right -->
+        <div class = "product-content">
+          
+          <h2 class = "product-title">Dhampus</h2>
+          
+
+         
+          <div class = "product-detail">
+            <h2>about this package: </h2>
+            <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Illo Eveniet Veniam Tempora Fuga Tenetur Placeat Sapiente Architecto Illum Soluta Consequuntur.</p>
+            <ul>
+              <li>Trip: <span>Road</span></li>
+              <li>Days: <span>5</span></li>
+              <li>Package include: <span>Hotel check in plus food</span></li>
+              <li>Adventure: <span>Trekking, Wildlife</span></li>
+              <li>Extra: <span> Native Food, cultural dance</span></li>
+            </ul>
+          </div>
+          
+
+
+        </div>
+      </div>
+      
+    </div>
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+ 
+       <div class="box">
+          <h3>quick links</h3>
+          <a href="{% url 'home'%}"> <i class="fas fa-angle-right"></i> home</a>
+          <a href="{% url 'AboutUs'%}"> <i class="fas fa-angle-right"></i> about</a>
+          <a href="{% url 'Packages'%}"> <i class="fas fa-angle-right"></i> package</a>
+          <a href="{% url 'book'%}"> <i class="fas fa-angle-right"></i> book</a>
+       </div>
+ 
+       <div class="box">
+          <h3>contact info</h3>
+          <a href="#"> <i class="fas fa-phone"></i> +977-9818709813 </a>
+          <a href="#"> <i class="fas fa-phone"></i> +977 4445678 </a>
+          <a href="#"> <i class="fas fa-envelope"></i>tourmanagement2001@gmail.com </a>
+          <a href="#"> <i class="fas fa-map"></i> Kathmandu, Boudha - 44600 </a>
+       </div>
+ 
+    </div>
+ 
+ </section>
+ 
+ <!-- footer section ends -->
+ 
+ 
+
+ 
+ <!-- swiper js link  -->
+ <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+ 
+ <!-- custom js file link  -->
+
+ <script src="{% static 'js/package.js' %}"></script>
+   
+ <script src="{% static 'js/tourdetails.js' %}"></script>
+ 
+ 
+ </body>
+ 
+ </html>
+ 
