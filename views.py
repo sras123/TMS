@@ -2,19 +2,21 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from django.contrib.auth.models import Group
+from django.core.mail import send_mail
 
-from .models import Destinations, Review
-from .decorators import unauthenticated_user, allowed_users, admin_only
+from .models import Destinations, ClientReview, TourGallery
+
+
+
 
 
 
 # Create your views here.
-# @allowed_users(allowed_roles=['users','admins'])
 def home(request):
     return render(request, 'home.html')
 
-@unauthenticated_user   
+
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -33,10 +35,8 @@ def login(request):
 
 
 
-@unauthenticated_user
+
 def createAccount(request):
-
-
     if request.method == 'POST':
 
         first_name = request.POST['first_name']
@@ -45,10 +45,9 @@ def createAccount(request):
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         email = request.POST['email']
-        gender = request.POST['gender']
-        province = request.POST['province']
+ 
+        
 
-        print(gender)
         if password1==password2:
             if User.objects.filter(username=username).exists():
                 messages.info(request,'Username taken')
@@ -57,8 +56,8 @@ def createAccount(request):
                 messages.info(request,'Email taken')
                 return redirect('createAccount')
             else:
-               user = User.objects.create_user(username,password=password1,email=email,first_name=first_name,last_name=last_name, gender=gender, province=province)
-               user.save()
+               user = User.objects.create_user(username,password=password1,email=email,first_name=first_name,last_name=last_name)
+               user.save();
                print(request,'user created')
                return redirect('login')
         else:
@@ -69,6 +68,9 @@ def createAccount(request):
     else: 
       return render(request, 'createAccount.html')
 
+
+
+
 def forgotpass(request):
     return render(request, 'forgotpass.html')
 
@@ -78,30 +80,92 @@ def logout(request):
     auth.logout(request)
     return redirect('login')
 
-def review(request):
-    
-    return render(request, 'review')
 
-
-@admin_only
 def admin(request):
     
     return render(request, 'admin')
 
 
-def packages(request):
+def Packages(request):
     dests = Destinations.objects.all()
     
-    return render(request, 'packages.html', {'dests': dests})
+    return render(request, 'Packages.html', {'dests': dests})
+
+
+
+
+def AboutUs(request):
+     return render(request, 'AboutUs.html')
+    
+    
+   
+def Reviews(request):
+    Review = ClientReview.objects.all()
+
+    return render(request, 'Reviews.html', {'Review': Review})
+
+def Gallery(request):
+
+    Image= TourGallery.objects.all()
+    return render(request, 'Gallery.html',{'Image':Image})
+
+
+# def Booking(request):
+#      return render(request, 'Booking.html')
+
+def book(request):
+    
+    return render(request, 'book.html')
+
+
+def Tourdetails(request):
+    
+    return render(request, 'Tourdetails.html')
+
+
+def Payment(request):
+    
+    return render(request, 'Payment.html')
+
+def paynow(request):
+  
+    return render(request, 'paynow.html')
+
+def Display(request):
+  
+    return render(request, 'Display.html')
+    
+    
    
 
-def review(request):
-    # Review = Review.objects.all()
-    
-    return render(request, 'review.html', {'Review': Review})
+def Info(request):
+    if request.method == "POST":
+        name= request.POST['name']
+        email= request.POST['email']
+        phone= request.POST['phone']
+        address= request.POST['address']
+        location= request.POST['location']
+        guests= request.POST['guests']
+        arrivals= request.POST['arrivals']
+        leaving= request.POST['leaving']
 
+        #send an email
+        booking= "Name: "+ name+"\n"+ "Phone:"+ phone + "\n"+"Email:" + email +"\n" +"Address:" + address +"\n"+ "Location:"+ location + "\n"+"No of people:" + guests + "\n"+"Arrivals:" +arrivals +"\n"+ "Leaving:" + leaving+"\n"
+        
+        send_mail(
+            'Approve Package',
+            booking,
+            email,
+            ['tourmanagement2001@gmail.com'],
+        )
+    return render(request, 'Info.html', {
+        'name': name,
+        'email': email,
+        'phone': phone,
+        'address': address,
+        'location': location,
+        'guests':guests,
+        'arrivals': arrivals,
+        'leaving': leaving
+    })
 
-def booking(request):
-    Booking = Review.objects.all()
-    
-    return render(request, 'booking.html', {'Booking': Booking})
